@@ -93,6 +93,31 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end gap-3">
+        <label className="swap mt-1">
+          <input
+            type="checkbox"
+            onChange={(e) => handleTheme(e.target.checked)}
+            checked={theme === "dark"}
+          />
+          {/* Sun Icon */}
+          <svg
+            className="swap-on fill-current w-7 h-7 text-yellow-400"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5.64 17.657l-1.414 1.415-1.415-1.415 1.415-1.414 1.414 1.414zm0-11.314l-1.414-1.415 1.415-1.415 1.414 1.415-1.415 1.415zM12 4V1h-1v3h1zm0 19v-3h-1v3h1zm8.36-5.343l1.415 1.414-1.415 1.415-1.414-1.415 1.414-1.414zM18.36 6.343l1.415-1.415-1.415-1.415-1.414 1.415 1.414 1.415zM4 13H1v-1h3v1zm19 0h-3v-1h3v1zM12 8a4 4 0 110 8 4 4 0 010-8z" />
+          </svg>
+
+          {/* Moon Icon */}
+          <svg
+            className="swap-off fill-current w-7 h-7 text-black"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path d="M21.64 13.348A9 9 0 0110.652 2.36a7 7 0 109.988 10.988z" />
+          </svg>
+        </label>
+
         {user ? (
           <div className="dropdown dropdown-end z-50">
             <div
@@ -126,24 +151,13 @@ const Navbar = () => {
                 <Link to={"/my-models"}>My Models</Link>
               </li>
 
-              <li>
-                <div className="flex items-center justify-between">
-                  <p className="flex items-center gap-1">
-                    <span>Light</span>
-                    <FaArrowRight />
-                  </p>
-                  <input
-                    onChange={(e) => handleTheme(e.target.checked)}
-                    type="checkbox"
-                    defaultChecked={localStorage.getItem("theme") === "dark"}
-                    className="toggle"
-                  />
-                  <p className="flex items-center gap-1">
-                    <FaArrowLeft />
-                    <span>Dark</span>
-                  </p>
-                </div>
-              </li>
+              {/*  <input
+                onChange={(e) => handleTheme(e.target.checked)}
+                type="checkbox"
+                defaultChecked={localStorage.getItem("theme") === "dark"}
+                className="toggle"
+              />
+               */}
               <li>
                 <button
                   onClick={signOutUser}
