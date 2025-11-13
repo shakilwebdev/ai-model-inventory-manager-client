@@ -1,0 +1,54 @@
+import { createBrowserRouter } from "react-router";
+import MainLayout from "../layout/MainLayout";
+import Home from "../pages/Home/Home";
+import Login from "../pages/Auth/Login";
+import Register from "../pages/Auth/Register";
+import AllModels from "../pages/AllModels/AllModels";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import AddModel from "../pages/AddModel/AddModel";
+import PrivateRoute from "./PrivateRoute";
+import ModelDetails from "../pages/ModelDetails/ModelDetails";
+
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout />,
+    errorElement: <ErrorPage />,
+    hydrateFallbackElement: <p className="text-center mt-96">Loading...</p>,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/all-models",
+        element: <AllModels />,
+        loader: () => fetch("http://localhost:3000/models"),
+      },
+      {
+        path: "/add-model",
+        element: (
+          <PrivateRoute>
+            <AddModel />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/model-details/:id",
+        element: (
+          <PrivateRoute>
+            <ModelDetails />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+    ],
+  },
+]);
