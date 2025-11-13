@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 const AddModel = () => {
   const handleSubmit = (e) => {
@@ -9,7 +10,7 @@ const AddModel = () => {
       useCase: e.target.useCase.value,
       dataset: e.target.dataset.value,
       description: e.target.description.value,
-      thumbnail: e.target.thumbnail.value,
+      image: e.target.image.value,
     };
     // console.log(formData);
     fetch("http://localhost:3000/models", {
@@ -21,6 +22,7 @@ const AddModel = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        toast.success("Model added successfully!");
         console.log(data);
       })
       .catch((error) => {
@@ -92,10 +94,10 @@ const AddModel = () => {
 
             {/* Thumbnail URL */}
             <div>
-              <label className="label font-medium mb-1">Thumbnail URL</label>
+              <label className="label font-medium mb-1">Image URL</label>
               <input
                 type="url"
-                name="thumbnail"
+                name="image"
                 required
                 className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
                 placeholder="https://example.com/image.jpg"
