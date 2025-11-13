@@ -40,7 +40,13 @@ const ModelDetails = () => {
             </p>
 
             <div className="card-actions justify-end mt-4">
-              <button className="btn btn-error text-white w-full sm:w-auto">
+              <button className="btn text-white rounded-full bg-linear-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 w-full sm:w-auto">
+                Purchase Model
+              </button>
+              <button className="btn text-white rounded-full bg-linear-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 w-full sm:w-auto">
+                Update Model
+              </button>
+              <button className="btn text-white rounded-full bg-linear-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 w-full sm:w-auto">
                 Delete
               </button>
             </div>
