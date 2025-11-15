@@ -1,11 +1,11 @@
 import React from "react";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
 const ModelDetails = () => {
   const data = useLoaderData();
   const model = data.result;
   console.log(model);
-  const { name, framework, useCase, dataset, description, image } = model;
+  const { name, framework, useCase, dataset, description, image, _id } = model;
 
   return (
     <div>
@@ -43,9 +43,12 @@ const ModelDetails = () => {
               <button className="btn text-white rounded-full bg-linear-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 w-full sm:w-auto">
                 Purchase Model
               </button>
-              <button className="btn text-white rounded-full bg-linear-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 w-full sm:w-auto">
+              <Link
+                to={`/update-model/${_id}`}
+                className="btn text-white rounded-full bg-linear-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 w-full sm:w-auto"
+              >
                 Update Model
-              </button>
+              </Link>
               <button className="btn text-white rounded-full bg-linear-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 w-full sm:w-auto">
                 Delete
               </button>
