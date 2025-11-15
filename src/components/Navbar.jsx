@@ -1,10 +1,6 @@
 import React, { use, useEffect, useState } from "react";
 import {
-  FaGear,
-  FaUser,
   FaDatabase,
-  FaArrowRight,
-  FaArrowLeft,
 } from "react-icons/fa6";
 import { GoHomeFill } from "react-icons/go";
 import { ImBoxAdd } from "react-icons/im";
@@ -123,7 +119,7 @@ const Navbar = () => {
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost btn-circle avatar"
+              className="btn btn-ghost btn-circle avatar cursor-pointer"
             >
               <div className="w-9 border-2 border-gray-300 rounded-full">
                 <img
@@ -138,7 +134,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow-md shadow-white border-2 border-gray-200 "
             >
               <div className=" pb-3 border-b border-b-gray-200">
                 <li className="text-sm font-bold">{user?.displayName}</li>
