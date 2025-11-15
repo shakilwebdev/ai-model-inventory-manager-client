@@ -9,8 +9,8 @@ const ModelDetails = () => {
 
   return (
     <div>
-      <div className="min-h-screen flex items-center justify-center bg-base-200 p-4">
-        <div className="card w-full max-w-2xl bg-base-100 shadow-xl rounded-2xl overflow-hidden">
+      <div className="min-h-screen flex items-center justify-center p-4">
+        <div className="card w-full max-w-2xl bg-base-100 shadow-2xl rounded-2xl overflow-hidden border border-white">
           <figure className="w-full">
             <img
               src={image}

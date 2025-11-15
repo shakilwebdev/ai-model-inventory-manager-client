@@ -38,7 +38,7 @@ const UpdateModel = () => {
 
   return (
     <div>
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-12">
+      <div className="min-h-screen flex items-center justify-center px-4 py-12">
         <div className="card border border-gray-200 bg-base-100 w-full max-w-md shadow-2xl rounded-2xl">
           <div className="card-body p-6 relative">
             <h2 className="text-2xl font-bold text-center mb-6">

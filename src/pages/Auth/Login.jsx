@@ -40,7 +40,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gray-50">
+    <div className="min-h-screen flex items-center justify-center p-4">
       <div className="card bg-base-100 w-full mx-auto max-w-sm shadow-2xl border border-gray-200 transform -translate-y-8">
         <div className="card-body">
           <h1 className="text-3xl font-bold text-center">Login</h1>
@@ -50,7 +50,7 @@ const Login = () => {
               <input
                 type="email"
                 name="email"
-                className="input w-full bg-white rounded-full focus:border-gray-300 focus:outline-none"
+                className="input w-full rounded-full focus:border-gray-300 focus:outline-none"
                 placeholder="Email"
               />
 
@@ -59,7 +59,7 @@ const Login = () => {
                 <input
                   type={showPassword ? "text" : "password"}
                   name="password"
-                  className="input w-full bg-white rounded-full focus:border-gray-300 focus:outline-none pr-10"
+                  className="input w-full rounded-full focus:border-gray-300 focus:outline-none pr-10"
                   placeholder="Password"
                   required
                 />
