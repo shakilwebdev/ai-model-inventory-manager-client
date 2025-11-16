@@ -15,12 +15,30 @@ import {
   FaMicrophone,
   FaCheck,
 } from "react-icons/fa";
+import { useLoaderData } from "react-router";
+import ModelCard from "../../components/ModelCard";
 
 const Home = () => {
+  const data = useLoaderData();
+  console.log(data);
+
   return (
     <div>
       <Banner></Banner>
-      <div className="">
+
+      <div className="sections">
+        {/* featured-ai-models */}
+        <div className="featured-ai-models py-4 sm:py-6 md:py-8 px-2 sm:px-4">
+          <h2 className="text-xl sm:text-2xl md:text-3xl text-center font-bold mb-5 md:mb-12">
+            Featured AI Models
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 lg:gap-5">
+            {data.map((model) => (
+              <ModelCard key={model._id} model={model}></ModelCard>
+            ))}
+          </div>
+        </div>
+
         {/* About AI Models */}
         <div className="About-AI-Models-section rounded-2xl py-8 sm:py-12 md:py-16 lg:py-20 bg-white dark:bg-gray-900 px-2 xs:px-4 sm:px-6 md:px-8">
           <div className="max-w-7xl mx-auto">
@@ -143,7 +161,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-
         {/* How It Works Section */}
         <div className=" Works-Section rounded-2xl py-8 sm:my-12 md:my-16 lg:my-20 bg-linear-to-b from-white to-gray-50 px-2 xs:px-4 sm:px-6 md:px-8">
           <div className="max-w-7xl mx-auto">
@@ -217,7 +234,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-
         {/* Features Section */}
         <div className="Features-Section rounded-tl-2xl rounded-tr-2xl py-8 sm:py-12 md:py-16 lg:py-20 bg-white px-2 xs:px-4 sm:px-6 md:px-8">
           <div className="max-w-7xl mx-auto">
@@ -286,7 +302,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-
         {/* Get Started Section */}
         <div className="Get-Started py-12 sm:py-16 md:py-20 bg-linear-to-r from-indigo-600 to-blue-500 px-4 sm:px-6 md:px-8">
           <div className="max-w-4xl mx-auto text-center">

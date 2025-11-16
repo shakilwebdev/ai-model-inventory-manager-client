@@ -1,7 +1,11 @@
-import React from "react";
+import React, { use } from "react";
 import { toast } from "react-toastify";
+import { AuthContext } from "../../context/AuthContext";
 
 const AddModel = () => {
+  const { user } = use(AuthContext);
+  // console.log(user);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = {
@@ -11,6 +15,10 @@ const AddModel = () => {
       dataset: e.target.dataset.value,
       description: e.target.description.value,
       image: e.target.image.value,
+
+      createdAt: new Date(),
+      purchased: 0,
+      createdBy: user.email,
     };
     // console.log(formData);
     fetch("http://localhost:3000/models", {
