@@ -1,12 +1,55 @@
 import React from "react";
-import { Link, useLoaderData } from "react-router";
+import { Link, useLoaderData, useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const ModelDetails = () => {
   const data = useLoaderData();
   const model = data.result;
   console.log(model);
+  const navigate = useNavigate();
   const { name, framework, useCase, dataset, description, image, _id } = model;
 
+  const handleDelete = () => {
+    console.log("hello");
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/models/${_id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            navigate("/all-models");
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+
+        /*        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        }); */
+      }
+    });
+  };
   return (
     <div>
       <div className="min-h-screen flex items-center justify-center p-4">
@@ -49,7 +92,10 @@ const ModelDetails = () => {
               >
                 Update Model
               </Link>
-              <button className="btn text-white rounded-full bg-linear-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 w-full sm:w-auto">
+              <button
+                onClick={handleDelete}
+                className="btn text-white rounded-full bg-linear-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 w-full sm:w-auto"
+              >
                 Delete
               </button>
             </div>
