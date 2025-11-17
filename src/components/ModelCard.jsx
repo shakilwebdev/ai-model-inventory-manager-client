@@ -5,7 +5,7 @@ import { Link } from "react-router";
 const ModelCard = ({ model }) => {
   //   console.log(model);
 
-  const { framework, image, name, useCase, _id } = model;
+  const { framework, image, name, useCase, _id, createdBy } = model;
 
   return (
     <div className="w-full h-full px-1">
@@ -35,6 +35,9 @@ const ModelCard = ({ model }) => {
 
           <p className="text-xs sm:text-sm text-gray-600 mt-2 line-clamp-3">
             {useCase}
+          </p>
+          <p className="text-xs sm:text-sm text-gray-600 mt-2 line-clamp-3">
+            {createdBy}
           </p>
 
           <div className="mt-4 flex items-center justify-between gap-3">
