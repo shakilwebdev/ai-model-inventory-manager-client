@@ -1,7 +1,5 @@
 import React, { use, useEffect, useState } from "react";
-import {
-  FaDatabase,
-} from "react-icons/fa6";
+import { FaDatabase } from "react-icons/fa6";
 import { GoHomeFill } from "react-icons/go";
 import { ImBoxAdd } from "react-icons/im";
 import { Link, NavLink } from "react-router";
@@ -143,6 +141,7 @@ const Navbar = () => {
               <li className="mt-2">
                 <Link to={"/model-purchase"}>Model Purchase</Link>
               </li>
+
               <li>
                 <Link to={"/my-models"}>My Models</Link>
               </li>
