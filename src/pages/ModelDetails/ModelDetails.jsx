@@ -1,13 +1,39 @@
-import React from "react";
-import { Link, useLoaderData, useNavigate } from "react-router";
+import React, { use, useEffect, useState } from "react";
+// import { Link, useLoaderData, useNavigate } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../context/AuthContext";
 
 const ModelDetails = () => {
-  const data = useLoaderData();
+  /*   const data = useLoaderData();
   const model = data.result;
   console.log(model);
   const navigate = useNavigate();
   const { name, framework, useCase, dataset, description, image, _id } = model;
+  */
+
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const [model, setModel] = useState({});
+  const [loading, setLoading] = useState(true);
+  const { user } = use(AuthContext);
+
+  const { name, framework, useCase, dataset, description, image, _id } = model;
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/models/${id}`, {
+      headers: {
+        // authorization: "hello",
+        authorization: `Bearer ${user.accessToken}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setModel(data.result);
+        setLoading(false);
+      });
+  }, []);
 
   const handleDelete = () => {
     console.log("hello");
@@ -50,6 +76,10 @@ const ModelDetails = () => {
       }
     });
   };
+
+  if (loading) {
+    return <p className="text-center mt-96">Loading...</p>;
+  }
   return (
     <div>
       <div className="min-h-screen flex items-center justify-center p-4">
