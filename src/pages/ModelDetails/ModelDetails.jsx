@@ -3,6 +3,7 @@ import React, { use, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../context/AuthContext";
+import { toast } from "react-toastify";
 
 const ModelDetails = () => {
   /*   const data = useLoaderData();
@@ -33,7 +34,7 @@ const ModelDetails = () => {
         setModel(data.result);
         setLoading(false);
       });
-  }, []);
+  }, [user, id]);
 
   const handleDelete = () => {
     console.log("hello");
@@ -77,6 +78,32 @@ const ModelDetails = () => {
     });
   };
 
+  const handlePurchase = () => {
+    fetch(`http://localhost:3000/purchase`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...model, purchased_by: user.email }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast.success("Model purchased successfully!");
+        /* 
+        navigate("/all-models");
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+         */
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   if (loading) {
     return <p className="text-center mt-96">Loading...</p>;
   }
@@ -113,7 +140,10 @@ const ModelDetails = () => {
             </p>
 
             <div className="card-actions justify-end mt-4">
-              <button className="btn text-white rounded-full bg-linear-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 w-full sm:w-auto">
+              <button
+                onClick={handlePurchase}
+                className="btn text-white rounded-full bg-linear-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 w-full sm:w-auto"
+              >
                 Purchase Model
               </button>
               <Link

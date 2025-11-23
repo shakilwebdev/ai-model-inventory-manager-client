@@ -139,7 +139,7 @@ const Navbar = () => {
                 <li className="text-xs">{user.email}</li>
               </div>
               <li className="mt-2">
-                <Link to={"/model-purchase"}>Model Purchase</Link>
+                <Link to={"/my-purchase"}>My Purchase</Link>
               </li>
 
               <li>

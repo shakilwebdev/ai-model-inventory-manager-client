@@ -2,13 +2,13 @@ import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import ModelCard from "../../components/ModelCard";
 
-const MyModels = () => {
+const MyPurchase = () => {
   const { user } = use(AuthContext);
   const [models, setModels] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/my-models?email=${user.email}`, {
+    fetch(`http://localhost:3000/my-purchase?email=${user.email}`, {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
       },
@@ -35,4 +35,4 @@ const MyModels = () => {
   );
 };
 
-export default MyModels;
+export default MyPurchase;
