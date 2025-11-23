@@ -18,8 +18,19 @@ const ModelDetails = () => {
   const [model, setModel] = useState({});
   const [loading, setLoading] = useState(true);
   const { user } = use(AuthContext);
+  const [refetch, setRefetch] = useState(false);
 
-  const { name, framework, useCase, dataset, description, image, _id } = model;
+  // const { name, framework, useCase, dataset, description, image, _id } = model;
+  const {
+    name,
+    framework,
+    useCase,
+    dataset,
+    description,
+    image,
+    _id,
+    purchased,
+  } = model;
 
   useEffect(() => {
     fetch(`http://localhost:3000/models/${id}`, {
@@ -30,11 +41,15 @@ const ModelDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setModel(data.result);
+        console.log("Api called!");
+        console.log(data);
+
         setLoading(false);
       });
-  }, [user, id]);
+  }, [user, id, refetch]);
+  // }, [user, id]);
 
   const handleDelete = () => {
     console.log("hello");
@@ -78,18 +93,33 @@ const ModelDetails = () => {
     });
   };
 
+  // const { name, framework, useCase, dataset, description, image, _id } = model;
   const handlePurchase = () => {
-    fetch(`http://localhost:3000/purchase`, {
+    const finalMondel = {
+      name: model.name,
+      framework: model.framework,
+      useCase: model.useCase,
+      dataset: model.dataset,
+      description: model.description,
+      image: model.image,
+      createdBy: model.createdBy,
+      purchased: model.purchased,
+      createdAt: new Date(),
+      purchased_by: user.email,
+    };
+    fetch(`http://localhost:3000/purchase/${model._id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ ...model, purchased_by: user.email }),
+      // body: JSON.stringify({ ...model, purchased_by: user.email }),
+      body: JSON.stringify(finalMondel),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         toast.success("Model purchased successfully!");
+        setRefetch(!refetch);
         /* 
         navigate("/all-models");
         Swal.fire({
@@ -98,6 +128,21 @@ const ModelDetails = () => {
           icon: "success",
         });
          */
+        /*         fetch(`http://localhost:3000/models/${id}`, {
+          headers: {
+            // authorization: "hello",
+            authorization: `Bearer ${user.accessToken}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // console.log(data);
+            setModel(data.result);
+            console.log("Api called!");
+            console.log(data);
+
+            setLoading(false);
+          }); */
       })
       .catch((error) => {
         console.log(error);
@@ -132,6 +177,11 @@ const ModelDetails = () => {
               </p>
               <p>
                 <span className="font-semibold">Dataset:</span> {dataset}
+              </p>
+              <p>
+                <span className="font-semibold">Purchased:</span>{" "}
+                {/* {model.purchased} */}
+                {purchased}
               </p>
             </div>
 
