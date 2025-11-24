@@ -162,13 +162,13 @@ const Home = () => {
           </div>
         </div>
         {/* How It Works Section */}
-        <div className=" Works-Section rounded-2xl py-8 sm:my-12 md:my-16 lg:my-20 bg-linear-to-b from-white to-gray-50 px-2 xs:px-4 sm:px-6 md:px-8">
+        <div className=" Works-Section rounded-2xl py-8 sm:my-12 md:my-16 lg:my-20 dark:bg-gray-900 px-2 xs:px-4 sm:px-6 md:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-8 sm:mb-12 md:mb-16">
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold  mb-3 sm:mb-4">
                 How It Works
               </h2>
-              <p className="text-sm xs:text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-sm xs:text-base sm:text-lg max-w-2xl mx-auto">
                 Discover, download, and manage AI models effortlessly. Our
                 platform simplifies the entire process.
               </p>
@@ -235,13 +235,13 @@ const Home = () => {
           </div>
         </div>
         {/* Features Section */}
-        <div className="Features-Section rounded-tl-2xl rounded-tr-2xl py-8 sm:py-12 md:py-16 lg:py-20 bg-white px-2 xs:px-4 sm:px-6 md:px-8">
+        <div className="Features-Section rounded-tl-2xl rounded-tr-2xl py-8 sm:py-12 md:py-16 lg:py-20 dark:bg-gray-900 px-2 xs:px-4 sm:px-6 md:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-8 sm:mb-12 md:mb-16">
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
                 Why Choose Us?
               </h2>
-              <p className="text-sm xs:text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-sm xs:text-base sm:text-lg text-gray-600 dark:text-white max-w-2xl mx-auto">
                 We provide the most comprehensive AI model management platform
                 for developers and researchers.
               </p>
@@ -303,7 +303,7 @@ const Home = () => {
           </div>
         </div>
         {/* Get Started Section */}
-        <div className="Get-Started py-12 sm:py-16 md:py-20 bg-linear-to-r from-indigo-600 to-blue-500 px-4 sm:px-6 md:px-8">
+        <div className="Get-Started py-12 sm:py-16 md:py-20 bg-indigo-600 dark:bg-gray-900 px-4 sm:px-6 md:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
               Get Started Managing AI Models Today

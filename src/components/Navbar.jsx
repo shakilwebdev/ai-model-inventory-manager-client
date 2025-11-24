@@ -17,6 +17,7 @@ const Navbar = () => {
   }, [theme]);
 
   const handleTheme = (checked) => {
+    console.log(checked);
     setTheme(checked ? "dark" : "light");
   };
   return (
