@@ -15,7 +15,7 @@ const AllModels = () => {
 
     setLoading(true);
 
-    fetch(`http://localhost:3000/search?search=${search_text}`)
+    fetch(`https://ai-models-server.vercel.app/search?search=${search_text}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

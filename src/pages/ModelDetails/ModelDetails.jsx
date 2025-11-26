@@ -33,7 +33,7 @@ const ModelDetails = () => {
   } = model;
 
   useEffect(() => {
-    fetch(`http://localhost:3000/models/${id}`, {
+    fetch(`https://ai-models-server.vercel.app/models/${id}`, {
       headers: {
         // authorization: "hello",
         authorization: `Bearer ${user.accessToken}`,
@@ -64,7 +64,7 @@ const ModelDetails = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/models/${_id}`, {
+        fetch(`https://ai-models-server.vercel.app/models/${_id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
@@ -107,7 +107,7 @@ const ModelDetails = () => {
       createdAt: new Date(),
       purchased_by: user.email,
     };
-    fetch(`http://localhost:3000/purchase/${model._id}`, {
+    fetch(`https://ai-models-server.vercel.app/purchase/${model._id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -128,7 +128,7 @@ const ModelDetails = () => {
           icon: "success",
         });
          */
-        /*         fetch(`http://localhost:3000/models/${id}`, {
+        /*         fetch(`https://ai-models-server.vercel.app/models/${id}`, {
           headers: {
             // authorization: "hello",
             authorization: `Bearer ${user.accessToken}`,

@@ -5,15 +5,7 @@ import { getAuth } from "firebase/auth";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-/* const firebaseConfig = {
-  apiKey: "AIzaSyD2Vy1g-B9jMe4VFnv8Oj_WJl-UsZmhK2A",
-  authDomain: "ai-model-8601b.firebaseapp.com",
-  projectId: "ai-model-8601b",
-  storageBucket: "ai-model-8601b.firebasestorage.app",
-  messagingSenderId: "264436805663",
-  appId: "1:264436805663:web:59755398cc2acd764a652a",
-};
- */
+
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_apiKey,
   authDomain: import.meta.env.VITE_authDomain,

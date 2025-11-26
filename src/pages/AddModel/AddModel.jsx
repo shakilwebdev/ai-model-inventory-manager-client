@@ -21,7 +21,7 @@ const AddModel = () => {
       createdBy: user.email,
     };
     // console.log(formData);
-    fetch("http://localhost:3000/models", {
+    fetch("https://ai-models-server.vercel.app/models", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

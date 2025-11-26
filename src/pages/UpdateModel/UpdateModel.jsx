@@ -19,7 +19,7 @@ const UpdateModel = () => {
       image: e.target.image.value,
     };
     // console.log(formData);
-    fetch(`http://localhost:3000/models/${_id}`, {
+    fetch(`https://ai-models-server.vercel.app/models/${_id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
