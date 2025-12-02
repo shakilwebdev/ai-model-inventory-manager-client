@@ -1,4 +1,4 @@
-import React from "react";
+import React, { use } from "react";
 import Banner from "../../components/Banner";
 import Footer from "../Footer/Footer";
 import {
@@ -15,12 +15,15 @@ import {
   FaMicrophone,
   FaCheck,
 } from "react-icons/fa";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import ModelCard from "../../components/ModelCard";
+import { AuthContext } from "../../context/AuthContext";
 
 const Home = () => {
   const data = useLoaderData();
   console.log(data);
+
+  const { user } = use(AuthContext);
 
   return (
     <div>
@@ -339,19 +342,27 @@ const Home = () => {
               </ul>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn rounded-full bg-white text-indigo-600 hover:bg-white/20 hover:text-white hover:shadow-xl px-8 py-3 font-semibold text-base sm:text-lg transition-all duration-300">
-                Register Now
-              </button>
-              <button className="btn rounded-full border-2 border-white text-indigo-600 hover:bg-white/20 hover:text-white hover:shadow-xl px-8 py-3 font-semibold text-base sm:text-lg transition-all duration-300">
-                Sign In
-              </button>
-            </div>
-
-            <p className="text-indigo-100 text-sm sm:text-base mt-6">
-              Already have an account? You can sign in above to access your
-              models and continue where you left off.
-            </p>
+            {user ? (
+              <p className="text-indigo-100 text-sm sm:text-base mt-6">
+                Already have an account? You can sign in above to access your
+                models and continue where you left off.
+              </p>
+            ) : (
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  to={"/register"}
+                  className="btn rounded-full bg-white text-indigo-600 hover:bg-white/20 hover:text-white hover:shadow-xl px-8 py-3 font-semibold text-base sm:text-lg transition-all duration-300"
+                >
+                  Register Now
+                </Link>
+                <Link
+                  to={"/login"}
+                  className="btn rounded-full border-2 border-white text-indigo-600 hover:bg-white/20 hover:text-white hover:shadow-xl px-8 py-3 font-semibold text-base sm:text-lg transition-all duration-300"
+                >
+                  Sign In
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>
