@@ -21,7 +21,7 @@ const Navbar = () => {
     setTheme(checked ? "dark" : "light");
   };
   return (
-    <div className="navbar py-1 min-h-0 z-1 shadow-sm rounded-full glass-card max-w-7xl mt-2.5 border-2 border-gray-200">
+    <div className="navbar py-1 min-h-0 z-1 shadow-sm rounded-full glass-nav max-w-7xl mt-2.5">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -43,7 +43,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow-md shadow-white border-2 border-gray-200 "
           >
             <li>
               <NavLink to={"/"}>
