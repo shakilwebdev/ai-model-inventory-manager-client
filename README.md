@@ -43,9 +43,9 @@ Node.js
 
 Express.js
 
-MongoDB (Mongoose / Native Driver)
+MongoDB
 
-JWT / Firebase Token (for optional authorization)
+Firebase Token
 
 Vercel Deployment
 
@@ -145,14 +145,13 @@ POST /purchases Add purchase entry
 GET /purchases/:email Get user purchases
 🧪 Challenges Implemented
 
-✔ Framework-based filtering
 ✔ Search by model name
 ✔ Real-time purchase counter using $inc
 ✔ Full dark/light theme
 
 📸 Screenshots
 
-(Add 3–4 screenshots of your project here)
+![alt text](src/assets/images/localhost_5173_.png)
 
 📦 How to Run Locally
 1️⃣ Clone Repo
